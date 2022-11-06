@@ -1,5 +1,7 @@
 package com.example.vkinfo;
 
+import static com.example.vkinfo.utils.NetworkUtils.generateURL;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -8,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                result.setText("Кнопка была нажата!");
+                URL generatedURL = generateURL(searchField.getText().toString());
+                result.setText(generatedURL.toString());
             }
         };
 
